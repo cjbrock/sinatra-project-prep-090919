@@ -1,4 +1,4 @@
-
+http verb | route | action
 GET       |      /posts      |    index
 GET       |      /posts/:id   |   show
 GET        |     /posts/new    |  new
