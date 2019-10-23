@@ -1,0 +1,18 @@
+<h1>Edit your post!</h1>
+
+<form method="POST" action="/posts/<%= @post.id %>">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+    <select name="user_id">
+        <% @users.each do |user| %>
+            <option value="<%= user.id%>"> <%= user.name %> </option>
+        <% end %>
+    </select>
+
+    <input type="text" name="title" value="<%=@post.title%>">
+
+    <textarea name="body"><%= @post.body %></textarea>
+
+    <input type="submit">
+
+</form>

@@ -1,0 +1,17 @@
+<h1>What did your cats do now?</h1>
+
+<form method="POST" action="/posts">
+
+    <select name="user_id">
+        <% @users.each do |user| %>
+            <option value="<%= user.id%>"> <%= user.name %> </option>
+        <% end %>
+    </select>
+
+    <input type="text" name="title">
+
+    <textarea name="body"></textarea>
+
+    <input type="submit">
+
+</form>
