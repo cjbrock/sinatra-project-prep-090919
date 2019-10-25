@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>SinatraBlog</title>
+    <title>Sinatra Blog</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -19,6 +19,11 @@
         <%= yield %>
 
       <footer class="branding">
+      <% if logged_in? %>
+          <h4>Welcome <%= current_user.name %></h4>
+          <h4><a href="/logout">Log Out</a></h4>
+        <% end %>
+        <br />
         <small>&copy; 2019 <strong>SinatraBlog</strong></small>
       </footer>
     </div>

@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     get '/posts/:id/edit' do
         @users = User.all
         @post = Post.find_by_id(params[:id])
-        if @posts.user.id == current_user.id
+        if @post.user.id == current_user.id
             erb :"posts/edit"
         else
             redirect "/posts"
@@ -48,10 +48,13 @@ class PostsController < ApplicationController
     end
 
     delete '/posts/:id' do
-        binding.pry
         @post = Post.find_by_id(params[:id])
-        @post.delete
-        redirect "/posts"
+        if @post.user.id == current_user.id
+            @post.delete
+            redirect "/posts"
+        else
+            redirect "/posts"
+        end
     end
 
 end
